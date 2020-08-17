@@ -4,6 +4,7 @@ import Main from "../Main/Main";
 import {pageContents, settings, listMenu, listData} from '../../data/dataStore';
 import Creator from "../Creator/Creator";
 import List from "../List/List";
+import Menu from "../Menu/Menu";
 
 class App extends React.Component {
     state = {
@@ -26,8 +27,14 @@ class App extends React.Component {
         ));
     }
   render() {
+      console.log(this.state.listData)
     return (
       <main className={styles.component}>
+          <div>
+              {this.state.listData.map(({key, ...listProps}) => (
+                  <Menu key={key} {...listProps} />
+              ))}
+          </div>
           <h1 className={styles.title}>{pageContents.title}</h1>
           <h2 className={styles.subtitle}>{pageContents.subtitle}</h2>
           <div>
