@@ -1,12 +1,18 @@
 import React from 'react';
 import styles from './App.scss';
-import {pageContents, settings, listData} from '../../data/dataStore';
+import {settings, listData} from '../../data/dataStore';
 import Creator from '../Creator/Creator';
-import List from '../List/List';
+import PropTypes from 'prop-types';
+import List from '../List/ListContainer';
 
 class App extends React.Component {
   state = {
     listData: listData.list || [],
+  }
+  static propTypes = {
+    title: PropTypes.node,
+    subtitle: PropTypes.node,
+    lists: PropTypes.array,
   }
   addList(title) {
     //const index = this.state.listData.findIndex((columns => columns.title === title));
@@ -27,7 +33,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.listData);
+    const {title, subtitle, lists} = this.props;
     return (
       <main className={styles.component}>
         {/*<div>*/}
@@ -35,17 +41,14 @@ class App extends React.Component {
         {/*        <Menu key={key} {...listProps} />*/}
         {/*    ))}*/}
         {/*</div>*/}
-        <h1 className={styles.title}>{pageContents.title}</h1>
-        <h2 className={styles.subtitle}>{pageContents.subtitle}</h2>
+        <h1 className={styles.title}>{title}</h1>
+        <h2 className={styles.subtitle}>{subtitle}</h2>
         <div>
           <Creator text={settings.listCreatorText} action={title => this.addList(title)}/>
         </div>
-        <div>
-          {this.state.listData.map(({key, ...listProps}) =>
-            <List key={key} {...listProps} />
-          )}
-
-        </div>
+        {lists.map(listData => (
+          <List key={listData.id} {...listData} />
+        ))}
       </main>
     );
   }
