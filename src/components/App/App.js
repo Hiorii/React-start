@@ -4,6 +4,7 @@ import {settings, listData} from '../../data/dataStore';
 import Creator from '../Creator/Creator';
 import PropTypes from 'prop-types';
 import List from '../List/ListContainer';
+import Search from '../Search/SearchContainer';
 
 class App extends React.Component {
   state = {
@@ -43,6 +44,9 @@ class App extends React.Component {
         {/*</div>*/}
         <h1 className={styles.title}>{title}</h1>
         <h2 className={styles.subtitle}>{subtitle}</h2>
+        <div>
+          <Search />
+        </div>
         <div>
           <Creator text={settings.listCreatorText} action={title => this.addList(title)}/>
         </div>
