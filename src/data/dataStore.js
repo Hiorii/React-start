@@ -95,32 +95,21 @@ export const listData = {
   ],
 };
 
-// export const listMenu = {
-//   list: [
-//   {
-//     key: 0,
-//     title: 'Things to do <sup>soon!</sup>',
-//     description: 'Interesting things I want to check out!',
-//     image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
-//   },
-//   {
-//     key: 1,
-//     title: 'Things to watch <sup>soon!</sup>',
-//     description: 'Interesting things I want to check out!',
-//     image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
-//   },
-//   {
-//     key: 2,
-//     title: 'Things to eat <sup>soon!</sup>',
-//     description: 'Interesting things I want to check out!',
-//     image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
-//   }
-//   ]
-// }
-
 const lists = [
   {
     id: 'list-1',
+    title: 'Things to do <sup>soon!</sup>',
+    description: 'Interesting things I want to check out!',
+    image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
+  },
+  {
+    id: 'list-2',
+    title: 'Things to do <sup>soon!</sup>',
+    description: 'Interesting things I want to check out!',
+    image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
+  },
+  {
+    id: 'list-3',
     title: 'Things to do <sup>soon!</sup>',
     description: 'Interesting things I want to check out!',
     image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
