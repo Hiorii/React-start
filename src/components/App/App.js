@@ -14,27 +14,12 @@ class App extends React.Component {
     title: PropTypes.node,
     subtitle: PropTypes.node,
     lists: PropTypes.array,
-  }
-  addList(title) {
-    //const index = this.state.listData.findIndex((columns => columns.title === title));
-    this.setState(state => (
-      {
-        listData: [
-          ...state.listData,
-          {
-            key: state.listData.length ? state.listData[state.listData.length - 1].key + 1 : 0,
-            title,
-            description: 'Interesting things I want to check out!',
-            image: 'http://uploads.kodilla.com/bootcamp/fer/11.react/space.png',
-            columns: [],
-          },
-        ],
-      }
-    ));
+    addList: PropTypes.func,
   }
 
   render() {
-    const {title, subtitle, lists} = this.props;
+    const {title, subtitle, lists, addList} = this.props;
+    console.log(this.props.lists);
     return (
       <main className={styles.component}>
         {/*<div>*/}
@@ -48,7 +33,7 @@ class App extends React.Component {
           <Search />
         </div>
         <div>
-          <Creator text={settings.listCreatorText} action={title => this.addList(title)}/>
+          <Creator text={settings.listCreatorText} action={addList}/>
         </div>
         {lists.map(listData => (
           <List key={listData.id} {...listData} />
