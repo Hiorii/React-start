@@ -3,6 +3,7 @@ import List from './List';
 import {createActionAddColumn, getColumnsForList } from '../../redux/columnRedux';
 
 const mapStateToProps = (state, props) => {
+  console.log(state);
   const id = props.match.params.id;
   const filteredLists = state.lists.filter(list => list.id == id);
   const listParams = filteredLists[0] || {};
@@ -15,7 +16,7 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch, props) => ({
   addColumn: title => dispatch(createActionAddColumn({
-    listId: props.id,
+    listId: props.match.params.id,
     title,
   })),
 });
