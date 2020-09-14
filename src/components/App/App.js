@@ -2,11 +2,11 @@ import React from 'react';
 import Home from '../Home/HomeContainer';
 import Info from '../Info/Info';
 import FAQ from '../FAQ/FAQ';
-import Search from '../Search/Search';
 import List from '../List/ListContainer';
-import {BrowserRouter, Route} from 'react-router-dom';
+import SearchResults from '../SearchResults/SearchResultsContainer';
 import MainLayout from '../MainLayout/MainLayout';
-import {AnimatedSwitch} from 'react-router-transition';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { AnimatedSwitch } from 'react-router-transition';
 import styles from './App.scss';
 
 const App = () => (
@@ -16,15 +16,15 @@ const App = () => (
         atEnter={{ opacity: 0 }}
         atLeave={{ opacity: 0 }}
         atActive={{ opacity: 1 }}
-        className={styles.switchWrapper}
+        className={ styles.switchWrapper }
       >
-        <Route exact path='/' component={Home} />
-        <Route exact path='/info' component={Info} />
-        <Route exact path='/FAQ' component={FAQ} />
-        <Route exact path="/list/:id" component={List} />
-        <Route exact path="/search/:id" component={Search} />
+        <Route exact path='/' component={ Home } />
+        <Route exact path='/info' component={ Info } />
+        <Route exact path='/faq' component={ FAQ } />
+        <Route exact path="/list/:id" component={ List } />
+        <Route exact path="/search/:id" component={ SearchResults } />
       </AnimatedSwitch>
-    </MainLayout>
+    </MainLayout> 
   </BrowserRouter>
 );
 

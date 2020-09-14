@@ -2,7 +2,7 @@
 
 .component {
   flex-shrink: 0;
-  width: calc(33% - 12px);
+  width: 100%;
   background: $color-light;
   margin: 0 $base-size $base-size 0;
   padding: ($base-size * 1.5);
@@ -21,15 +21,24 @@
   margin: 0 0 ($base-size * 1.5) 0;
 }
 
-.icon > * {
-  padding-right: $base-size;
-  color: $color-warning;
-  font-size: ($base-size * 2);
-  vertical-align: middle;
-}
-
 .cards {
   padding: ($base-size / 2) 0;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  text-decoration: none;
+  font-weight: 700;
+  color: $color-nav;
+}
+
+.icon {
+  margin: 0 10px;
+  color: $color-success;
 }
 
 @media (max-width: 767px) {

@@ -23,7 +23,7 @@ class Home extends React.Component {
         ))}
       </main>
     );
-  }
+  }  
 }
 
 export default Home;

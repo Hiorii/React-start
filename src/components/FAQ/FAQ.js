@@ -1,16 +1,24 @@
 import React from 'react';
 import Container from '../Container/Container';
 import Hero from '../Hero/Hero';
-import {faqContent} from '../../data/dataStore';
+import propTypes from 'prop-types';
+import { faqContents, listData } from '../../data/dataStore';
 
-const FAQ = () => {
-  return (
-    <Container>
-      <Hero titleText={faqContent.title} image={faqContent.image} />
-      <h2>{faqContent.header}</h2>
-      <p>{faqContent.text}</p>
-    </Container>
-  );
+const FAQ = () => (
+  <Container>
+    <Hero titleText={ faqContents.title } image={ listData.image } />
+    <h2>{ faqContents.questionOne }</h2>
+    <p>{ faqContents.answerOne }</p>
+    <h2>{ faqContents.questionTwo }</h2>
+    <p>{ faqContents.answerTwo }</p>
+    <h2>{ faqContents.questionThree }</h2>
+    <p>{ faqContents.answerThree }</p>
+  </Container>
+);
+
+FAQ.propTypes = {
+  title: propTypes.string,
+  image: propTypes.string,
 };
 
 export default FAQ;

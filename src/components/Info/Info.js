@@ -1,14 +1,20 @@
 import React from 'react';
 import Container from '../Container/Container';
 import Hero from '../Hero/Hero';
-import {infoContent} from '../../data/dataStore';
+import propTypes from 'prop-types';
+import { infoContents, listData } from '../../data/dataStore';
 
 const Info = () => (
   <Container>
-    <Hero titleText={infoContent.title} image={infoContent.image} />
-    <h2>{infoContent.header}</h2>
-    <p>{infoContent.text}</p>
+    <Hero titleText={ infoContents.title } image={ listData.image } />
+    <h2>{ infoContents.subtitle }</h2>
+    <p>{ infoContents.text }</p>
   </Container>
 );
+
+Info.propTypes = {
+  title: propTypes.string,
+  image: propTypes.string,
+};
 
 export default Info;
