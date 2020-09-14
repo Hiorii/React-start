@@ -1,15 +1,19 @@
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import Home from './Home';
-import { createAction_moveCard } from '../../redux/cardsRedux';
+import {createActionAddList} from '../../redux/listRedux';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   title: state.app.title,
   subtitle: state.app.subtitle,
   lists: state.lists,
 });
 
-const mapDispatchToProps = dispatch => ({
-  moveCard: payload => dispatch(createAction_moveCard(payload)),
+const mapDispatchToProps = (dispatch, props) => ({
+  addList: title => dispatch(createActionAddList({
+    listId: props.id,
+    title,
+  })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
+

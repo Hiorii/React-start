@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './Creator.scss';
 import Button from '../Button/Button';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class Creator extends React.Component {
   static propTypes = {
-    text: propTypes.string,
-    action: propTypes.func,
+    text: PropTypes.string,
+    action: PropTypes.node,
   }
 
   static defaultProps = {
@@ -16,6 +16,7 @@ class Creator extends React.Component {
   state = {
     value: '',
     visibleButtons: false,
+    result: false,
   }
 
   handleChange = event => {
@@ -27,7 +28,8 @@ class Creator extends React.Component {
   }
 
   handleOK = () => {
-    if(this.state.value != ''){
+    if (this.state.value !== '') {
+      console.log(this.state.value);
       this.props.action(this.state.value);
       this.setState({
         value: '',
@@ -36,27 +38,33 @@ class Creator extends React.Component {
     }
   }
 
-  handleCancel = () => {
-    window.confirm('Are you sure?'),
-
-    this.setState({
-      value: '',
-      visibleButtons: false,
-    });
+  handleCancel = (e) => {
+    let conf = window.confirm('Do you really want to cancel?');
+    if (conf === true) {
+      this.setState({
+        value: '',
+        visibleButtons: false,
+      });
+    } else {
+      this.setState({
+        value: e.target.value,
+        visibleButtons: true,
+      });
+    }
   }
 
   render() {
     return (
-      <div className={ styles.component }>
+      <div className={styles.component}>
         <input
           type='text'
-          placeholder={ this.props.text }
-          value={ this.state.value }
-          onChange={ this.handleChange }
+          placeholder={this.props.text}
+          value={this.state.value}
+          onChange={this.handleChange}
         />
         <div className={styles.buttons + (this.state.visibleButtons ? ' ' + styles.buttonsShown : '')}>
-          <Button onClick={ this.handleOK }>OK</Button>
-          <Button onClick={ this.handleCancel } variant='danger'>cancel</Button>
+          <Button onClick={this.handleOK}>OK</Button>
+          <Button onClick={this.handleCancel} variant='danger'>cancel</Button>
         </div>
       </div>
     );

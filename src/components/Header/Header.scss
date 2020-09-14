@@ -14,7 +14,7 @@
       color: $color-success;
     }
     &:global(.active) {
-      color: $color-nav;
+      color: $color-warning;
     }
   }
 
@@ -28,5 +28,4 @@
 
 .logo {
   font-size: 24px;
-  margin-right: $base-size;
 }

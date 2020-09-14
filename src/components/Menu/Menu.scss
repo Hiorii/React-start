@@ -1,0 +1,41 @@
+@import '../../styles/settings.scss';
+
+
+.component {
+  margin: 16px;
+}
+
+.menuOuter {
+  position: relative;
+  margin-bottom: 86px;
+  width: auto;
+}
+
+.menuOuterLink {
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  color: white;
+}
+
+.menuInner {
+  //display: none;
+  position: absolute;
+  margin: 7px 0;
+}
+
+.menuInnerLink {
+  text-decoration: none;
+  color: red;
+  display: block;
+}
+
+.menuOuter:hover {
+  background: red;
+}
+
+//.menuOuter:hover .menuInner {
+//  display: block;
+//}
+
+
