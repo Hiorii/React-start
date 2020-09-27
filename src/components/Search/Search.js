@@ -25,6 +25,11 @@ class Search extends React.Component {
     value: this.props.searchString,
   }
 
+  constructor(props) {
+    super(props);
+    this.handleOK = this.handleOK.bind(this);
+  }
+
   handleChange(event) {
     this.setState({
       value: event.target.value,
@@ -32,7 +37,7 @@ class Search extends React.Component {
     });
   }
 
-  handleOK(){
+  handleOK = () => {
     // this.props.changeSearchString(this.state.value);
     this.props.history.push(`/search/${this.state.value}`);
   }
@@ -57,7 +62,7 @@ class Search extends React.Component {
             onChange={event => this.handleChange(event)}
           />
           <div className={ styles.buttons }>
-            <Button onClick={() => this.handleOK()}><Icon name={ icon } /></Button>
+            <Button onClick={this.handleOK}><Icon name={ icon } /></Button>
           </div>
           <div>
             { countVisible == countAll ? '' : `${ countVisible } / ${ countAll }` }
